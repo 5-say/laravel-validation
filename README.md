@@ -135,3 +135,28 @@ Validation::throwIt(array(
         }
     }
 ```
+
+<a name="6"></a>
+## 模型的异常化
+
+> 上例中的 `UserSaveFailException` 即是模型异常化的结果。要达到这种效果仅仅需要两个步骤。让我们以 `User` 模型为例：
+
+1、继承 `FiveSay\Model`（不必担心，我们的 `FiveSay\Model` 已经继承了 `Eloquent`）：
+
+```php
+class User extends FiveSay\Model
+{ ...
+```
+
+2、在 `User.php` 文件的底部定义3个异常类：
+
+```php
+class User extends FiveSay\Model
+{
+ ...
+}
+
+class UserNotFindException    extends Exception {}
+class UserSaveFailException   extends Exception {}
+class UserDeleteFailException extends Exception {}
+```
