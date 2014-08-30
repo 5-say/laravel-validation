@@ -10,6 +10,8 @@ laravel-validation
 - [自定义验证消息](#3)
 - [特殊用法（直接抛出异常）](#4)
 - [实际项目中的应用节选，是时候开始引入异常化编程了！](#5)
+- [模型的异常化](#6)
+- [额外的支持 - 模型观察者（模型事件监听）](#7)
 
 > 合理的利用异常化编程方法，可以使代码可维护性大幅提高。
 
@@ -160,3 +162,9 @@ class UserNotFindException    extends Exception {}
 class UserSaveFailException   extends Exception {}
 class UserDeleteFailException extends Exception {}
 ```
+
+<a name="7"></a>
+## 额外的支持 - 模型观察者（模型事件监听）
+
+> 继承了 `FiveSay\Model` 的模型将额外获得一个特性：当对应的“模型观察者类”（`XxxxObserver`）存在时，将自动载入。  
+> 同样以 `User` 模型为例：当你在系统任何地方定义了 `UserObserver` 后，这个类就会被自动注册为“模型观察者”。
