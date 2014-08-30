@@ -1,6 +1,6 @@
 {
     "name": "five-say/laravel-validation",
-    "description": "",
+    "description": "validation support exception",
     "authors": [
         {
             "name": "FiveSay",
