@@ -16,7 +16,8 @@
             "src/migrations"
         ],
         "psr-0": {
-            "FiveSay\\LaravelValidation\\": "src/"
+            "FiveSay\\LaravelValidation\\": "src/",
+            "FiveSay\\": "src/"
         }
     },
     "minimum-stability": "stable"
