@@ -168,3 +168,20 @@ class UserDeleteFailException extends Exception {}
 
 > 继承了 `FiveSay\Model` 的模型将额外获得一个特性：当对应的“模型观察者类”（`XxxxObserver`）存在时，将自动载入。  
 > 同样以 `User` 模型为例：当你在系统任何地方定义了 `UserObserver` 后，这个类就会被自动注册为“模型观察者”。
+
+```php
+class UserObserver {
+
+    public function saving($model)
+    {
+        //
+    }
+
+    public function saved($model)
+    {
+        //
+    }
+
+}
+```
+
