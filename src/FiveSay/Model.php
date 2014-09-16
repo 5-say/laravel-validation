@@ -61,6 +61,38 @@ class Model extends Eloquent
         throw new $e;
     }
 
+    /**
+     * 复写系统方法
+     * @return void
+     */
+    protected function performDeleteOnModel()
+    {
+        $e = get_called_class().'DeleteFailException';
+        # 拓展软删除事件监听
+        if ($this->softDelete) {
+            if ($this->fireModelEvent('softing') === false) throw new $e;
+            parent::performDeleteOnModel();
+            $this->fireModelEvent('softed', false);
+        } else {
+            if ($this->fireModelEvent('forcing') === false) throw new $e;
+            parent::performDeleteOnModel();
+            $this->fireModelEvent('forced', false);
+        }
+    }
+
+    /**
+     * 复写系统方法
+     * @return array
+     */
+    public function getObservableEvents()
+    {
+        # 拓展软删除事件监听
+        return array_merge(
+            array('softing', 'softed', 'forcing', 'forced'),
+            parent::getObservableEvents()
+        );
+    }
+
 
 }
 
