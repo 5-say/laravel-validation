@@ -218,4 +218,4 @@ class DemoObserver
 }
 ```
 
-> **注意：** `softing``softed``forcing``forced` 并非原生事件，是由 `FiveSay\Model` 拓展得到的。
+> **注意：** `softing` `softed` `forcing` `forced` 并非原生事件，是由 `FiveSay\Model` 拓展得到的。
