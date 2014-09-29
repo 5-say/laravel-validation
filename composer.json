@@ -1,6 +1,7 @@
 {
     "name": "five-say/laravel-validation",
     "description": "validation support exception",
+    "keywords": ["laravel", "validation", "exception"],
     "authors": [
         {
             "name": "FiveSay",
