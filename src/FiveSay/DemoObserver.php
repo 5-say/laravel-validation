@@ -22,5 +22,10 @@
 */
 class DemoObserver
 {
-    // ...
+
+    public function saving($model)
+    {
+        // ...
+    }
+    
 }

@@ -9,15 +9,10 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
         "illuminate/support": "4.1.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
-        "psr-0": {
-            "FiveSay\\LaravelValidation\\": "src/",
+        "psr-4": {
             "FiveSay\\": "src/"
         }
     },

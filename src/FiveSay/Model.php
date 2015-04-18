@@ -28,10 +28,17 @@ class Model extends Eloquent
     public static function find($id, $columns = array('*'))
     {
         # 异常化编程
-        if ($result = parent::find($id, $columns))
+        if ($result = parent::find($id, $columns)) {
             return $result;
-        $e = get_called_class().'NotFindException';
-        throw new $e;
+        }
+
+        $modelClassName = get_called_class();
+        $e = $modelClassName.'NotFindException';
+        if (! class_exists($e)) {
+            eval('class '.$e.' extends \FiveSay\ModelNotFoundException {}');
+        }
+        
+        throw with(new $e)->setModel($modelClassName);
     }
 
     /**
@@ -95,10 +102,3 @@ class Model extends Eloquent
 
 
 }
-
-# 需手动为每个模型编写3个异常类，插入在模型文件的最底部。
-# 下面这3行就是 User 模型的例子：
-
-// class UserNotFindException    extends Exception {}
-// class UserSaveFailException   extends Exception {}
-// class UserDeleteFailException extends Exception {}

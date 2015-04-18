@@ -21,7 +21,7 @@ class LaravelValidation
     public function make(array $rules, array $messages = array())
     {
         // 获取数据
-        $data = Input::only(array_keys($rules));
+        $data = Input::all();
         // 字段验证
         $validator = Validator::make($data, $rules, $messages);
         if ($validator->fails())
@@ -37,7 +37,7 @@ class LaravelValidation
     public function saveMessage(array $rules, array $messages = array())
     {
         // 获取数据
-        $data = Input::only(array_keys($rules));
+        $data = Input::all();
         // 字段验证
         $validator = Validator::make($data, $rules, $messages);
         if ($validator->fails()) {

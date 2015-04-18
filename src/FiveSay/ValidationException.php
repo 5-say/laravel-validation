@@ -1,11 +1,10 @@
 <?php namespace FiveSay;
 
-use Exception;
-
-class ValidationException extends Exception
+class ValidationException extends \RuntimeException
 {
 	
     public $validator;
+    
     public $errors;
 
     public function __construct($validator, $code, Exception $previous = null)
